@@ -10,7 +10,7 @@ use JSON;
 my $json_text = <STDIN>;
 my @bufs = JSON->new()->decode($json_text);
 my @data = ($bufs[0]->{data});
-print Dumper @data;
+#print Dumper @data;
 #
 my $T = $data[0][0]/12 + $data[0][1]/12;
 my @signal = ();
@@ -33,4 +33,6 @@ while ( exists $data[0][$idx] &&  exists $data[0][$idx+1] ) {
 }
 #print $idx;
 print @signal,"\n";
+
+
 
