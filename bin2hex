@@ -1,0 +1,16 @@
+#!/usr/bin/env perl
+# http://mikeneko.creator.club.ne.jp/~lab/perl/numerical_transform/
+use strict;
+use Data::Dumper;
+
+my $bin_text = <STDIN>;
+
+my $offset = 0;
+while ( 0 < length($bin_text) - $offset - 1 ){
+	my $bin = substr($bin_text, $offset, 8);
+	$offset = $offset+8;
+	my $num16 = unpack("H2", pack( "B8", $bin )); 
+	print $num16;
+}
+print "\n";
+
