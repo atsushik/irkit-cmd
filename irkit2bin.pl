@@ -25,7 +25,7 @@ while ( exists $data[0][$idx] &&  exists $data[0][$idx+1] ) {
 		my $d0 =  ($data[0][$idx]   / $T);
 		my $d1 =  ($data[0][$idx+1] / $T);
 		my $mag = $data[0][$idx+1] / $data[0][$idx] ;
-		my $sig = $mag > 3? 1 : 0;
+		my $sig = $mag > 2.5? 1 : 0;
 		#printf "\t%d,%d\t%d\t%d\n",  $d0,$d1, $mag , $sig;
 		@signal = (@signal , $sig);
 	}
