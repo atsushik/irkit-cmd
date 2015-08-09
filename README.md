@@ -1,6 +1,6 @@
 # irkit-cmd
 - irkit2bin.pl
-	- [irkit](http://getirkit.com/ "IRKit") の *GET /messages* で取得できるjsonを家製協フォーマットの0/1で表示するスクリプト。jsonは標準出力から渡されることを期待しています。
+	- [irkit](http://getirkit.com/ "IRKit") の *GET /messages* で取得できるjsonを家製協フォーマットの0/1で表示するスクリプト。jsonは標準入力から渡されることを期待しています。
 	- 実行例：
 		- cat ~/src/irkit-cmd/toshiba/frc-150t/light-off | ./irkit2bin.pl
 	- 出力例

@@ -11,16 +11,20 @@ my $json_text = <STDIN>;
 my @bufs = JSON->new()->decode($json_text);
 my @data = ($bufs[0]->{data});
 #print Dumper @data;
+#print "ir-commandLength=", length($data[0]), "\n";
 #
-my $T = $data[0][0]/12 + $data[0][1]/12;
+my $T = ($data[0][0] + $data[0][1])/12;
+#print "\$T=", $T, "\n";
 my @signal = ();
 my $idx = 2;
 while ( exists $data[0][$idx] &&  exists $data[0][$idx+1] ) {
-	if ($data[0][$idx+1] == 65535) {
+	if ($data[0][$idx+1] == 65535 || $data[0][$idx] == 65535 ) {
 		#printf "%d,%d",  $data[0][$idx],$data[0][$idx+1];
+		print $idx;
 		$idx = $data[0];
+		print $idx;
 	}
-	elsif ( $T/2 < $data[0][$idx+1] || $data[0][$idx+1] < 4 * $T) {
+	else {
 		#printf "%d,%d",  $data[0][$idx],$data[0][$idx+1];
 		my $d0 =  ($data[0][$idx]   / $T);
 		my $d1 =  ($data[0][$idx+1] / $T);
